@@ -15,3 +15,17 @@ Para garantir a total segurança do sistema anfitrião (host) e da rede local re
 
 *(Nota: Caminhos de diretórios locais foram ofuscados por motivos de privacidade e segurança dos dados).*
 
+
+---
+
+## 🔑 Fase 2: Gestão de Contas e Credenciais (CIS Control 4.7)
+
+De acordo com a salvaguarda **CIS Control 4.7 (Manage Default Accounts)**, manter credenciais padrão de fábrica em sistemas operativos ativos representa um risco crítico de segurança, pois facilita o acesso inicial não autorizado por parte de atacantes.
+
+### Mitigação Prática Aplicada
+Após garantir o isolamento perimetral da rede virtual, foi efetuado o *hardening* (endurecimento) interno do sistema operativo do atacante (Kali Linux) através da revogação imediata das credenciais padrão de instalação (`kali:kali`).
+
+* **Ação:** Utilização do comando `passwd` para a criação de uma nova palavra-passe robusta e exclusiva para o utilizador do sistema.
+
+![Hardening de Senhas no Linux](gestao_credenciais)
+*(Nota: O print demonstra a confirmação do sistema operativo após a atualização bem-sucedida das credenciais de segurança).*
