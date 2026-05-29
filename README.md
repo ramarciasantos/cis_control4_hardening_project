@@ -12,10 +12,8 @@
 
 | Asset ID *(ID do Ativo)* | Device Name *(Nome do Dispositivo)* | Asset Function *(Função do Ativo)* | IP Address *(Endereço IP)* | MAC Address *(Endereço MAC)* | Asset Type *(Tipo de Ativo)* | Criticality *(Criticidade)* |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **HW-01** | `Host-Master` | Test Source *(Origem dos Testes)* | *[Inserir IP da Origem]* | *[Inserir MAC da Origem]* | Virtual Machine *(VM)* | Medium *(Média)* |
-| **HW-02** | `Target-Server` | Target Server *(Servidor Alvo)* | `192.168.184.130` | *[Inserir MAC do Alvo]* | Virtual Machine *(VM)* | High *(Alta)* |
-
-*Nota: Os endereços MAC mapeados acima foram recolhidos através do processo de ARP Resolution (Resolução ARP) validado na Fase 3 do laboratório.*
+| **HW-01** | `Host-Master` | Test Source *(Origem dos Testes)* | *[Inserir IP da Origem]* | *[XX:XX:XX:XX:]* | Virtual Machine *(VM)* | Medium *(Média)* |
+| **HW-02** | `Target-Server` | Target Server *(Servidor Alvo)* | `192.XXX.XXX.XXX` | *[XX:XX:XX:XX]* | Virtual Machine *(VM)* | High *(Alta)* |
 
 ---
 
