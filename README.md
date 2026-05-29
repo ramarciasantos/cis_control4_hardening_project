@@ -11,7 +11,7 @@ Para garantir a total segurança do sistema anfitrião (host) e da rede local re
 * **Sem Rota Lateral:** Bloqueia completamente o acesso à Internet. Isso impede que qualquer malware ou ataque interaja com dispositivos reais da sua rede local.
 * **Controlo de Tráfego:** Mitiga o risco de fugas de dados ou tráfego malicioso para fora do ambiente de testes.
 
-![Configuração Host-only no VMware](img.isolamento de rede.png)
+![Configuração Host-only no VMware](img.isolamentoderede.png)
 
 *(Nota: Caminhos de diretórios locais foram ofuscados por motivos de privacidade e segurança dos dados).*
 
@@ -39,7 +39,7 @@ Testes de conectividade de rede local utilizando o protocolo ICMP através do co
 
 A imagem abaixo ilustra um teste de eco (*Echo Request/Reply*) bem-sucedido direcionado ao endereço IP `192.xxx.xxx.xxx`:
 
-![Resultado do Comando Ping](protocolo ICMP.png)
+![Resultado do Comando Ping](protocoloICMP.png)
 
 ---
 
