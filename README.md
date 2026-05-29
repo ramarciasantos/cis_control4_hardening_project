@@ -1,4 +1,55 @@
-# Projeto de Hardening (CIS Control 4)
+# Cybersecurity Governance Model - CIS Controls v8
+*(Modelo de Governação de Cibersegurança - Controlos CIS v8)
+---
+
+## 📋 CIS Control 1: Inventory and Control of Enterprise Assets
+*(Inventário e Controlo de Ativos Empresariais)*
+
+**Objective:** Descobrir, monitorizar e gerir ativamente todos os dispositivos (físicos ou virtuais) ligados à rede da organização. Isto impede a ligação de *Unauthorized Devices* (Dispositivos Não Autorizados / Piratas), que reduzem a segurança da infraestrutura.
+
+### Asset Inventory Table *(Tabela de Inventário de Ativos)*
+
+
+| Asset ID *(ID do Ativo)* | Device Name *(Nome do Dispositivo)* | Asset Function *(Função do Ativo)* | IP Address *(Endereço IP)* | MAC Address *(Endereço MAC)* | Asset Type *(Tipo de Ativo)* | Criticality *(Criticidade)* |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **HW-01** | `Host-Master` | Test Source *(Origem dos Testes)* | *[Inserir IP da Origem]* | *[Inserir MAC da Origem]* | Virtual Machine *(VM)* | Medium *(Média)* |
+| **HW-02** | `Target-Server` | Target Server *(Servidor Alvo)* | `192.168.184.130` | *[Inserir MAC do Alvo]* | Virtual Machine *(VM)* | High *(Alta)* |
+
+*Nota: Os endereços MAC mapeados acima foram recolhidos através do processo de ARP Resolution (Resolução ARP) validado na Fase 3 do laboratório.*
+
+---
+
+## 📦 CIS Control 2: Inventory and Control of Software Assets
+*(Inventário e Controlo de Ativos de Software)*
+
+** Objective:** Garantir que apenas software legítimo, autorizado e atualizado está em execução na empresa. Softwares antigos, sem suporte (*End of Life*) ou não homologados são vetores críticos de ataque para exploração de vulnerabilidades.
+
+### Software Inventory Table *(Tabela de Inventário de Software)*
+
+
+| Software ID *(ID do SW)* | Software Name / OS *(Nome / Sistema Operativo)* | Installed Version *(Versão Instalada)* | Software Purpose *(Finalidade do Software)* | Security Status *(Estado de Segurança)* |
+| :--- | :--- | :--- | :--- | :--- |
+| **SW-01** | `kali linux` | Updated *(Atualizado)* |
+| **SW-02** | `iputils-ping` | Nativa | ICMP Diagnostic Tool *(Ferramenta de Diagnóstico)* | Authorized *(Autorizado)* |
+| **SW-03** | `ARP Daemon` | Nativa | Layer 2 Address Resolution *(Resolução na Camada 2)* | Critical System *(Essencial)* |
+
+---
+
+## 🔐 CIS Control 3: Data Protection
+*(Proteção de Dados)*
+
+** Objective:** Identificar, classificar e proteger dados sensíveis contra acessos não autorizados ou roubo (*Data Exfiltration*).
+
+### Data Classification for ICMP Tráfico *(Classificação de Dados para o Tráfego ICMP)*
+
+1. **Data Classification *(Classificação dos Dados):*** 
+   O tráfego gerado nos testes do laboratório contém apenas metadados de diagnóstico (Tamanho do pacote, TTL e RTT). É classificado como **Public / Internal Operational Data** *(Dados Públicos / Operacionais Internos)*. Não contém dados confidenciais ou sensíveis de negócio.
+
+2. **Governance Security Rule *(Regra de Segurança da Governação):*** 
+   Embora o tráfego não seja secreto, o campo de dados de um pacote ICMP (os 56 bytes enviados) pode ser abusado por atacantes para ocultar malware ou comandos de comando e controlo através de **ICMP Tunneling** *(Túnel ICMP)*.
+
+
+# CIS Control 4
 
 Projeto prático de auditoria e fortalecimento de sistema Linux baseado nas salvaguardas do controlo CIS 4.
 
@@ -18,7 +69,7 @@ Para garantir a total segurança do sistema anfitrião (host) e da rede local re
 
 ---
 
-## 🔑 Fase 2: Gestão de Contas e Credenciais (CIS Control 4.7)
+## 🔑 Gestão de Contas e Credenciais (CIS Control 4.7)
 
 De acordo com a salvaguarda **CIS Control 4.7 (Manage Default Accounts)**, manter credenciais padrão de fábrica em sistemas operativos ativos representa um risco crítico de segurança, pois facilita o acesso inicial não autorizado por parte de atacantes.
 
@@ -30,7 +81,7 @@ Após garantir o isolamento perimetral da rede virtual, foi efetuado o *hardenin
 ![Hardening de Senhas no Linux](gestao_credenciais.png)
 *(Nota: O print demonstra a confirmação do sistema operativo após a atualização bem-sucedida das credenciais de segurança).*
 
-## Fase 3: Conectividade de Rede.
+## Conectividade de Rede.
 # Análise de Conectividade de Rede com ICMP (Ping)
 
 Testes de conectividade de rede local utilizando o protocolo ICMP através do comando `ping` num ambiente Linux.
@@ -62,6 +113,7 @@ por causa da ARP(`PROTOCOLO DE RESOLUÇÃO DE ENDEREÇO´).
 * **Instabilidade da Rede (`mdev`):** 2.679 ms. O desvio médio baixo confirma que a ligação é estável e livre de oscilações severas (*jitter*).
 * **obs:** esses testes sao feitos em uma laboratorio domestico pessoal.
 e altera quando se trata de  uma estrutura empresarial.
+
 ### 2. Integridade dos Dados
 * **Pacotes Transmitidos:** 4
 * **Pacotes Recebidos:** 4
